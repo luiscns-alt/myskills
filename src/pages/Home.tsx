@@ -10,17 +10,26 @@ import {
 import { Button } from '../components/Button';
 import SkillCard from '../components/SkillCard';
 
+interface SkillData {
+    id: string;
+    name: string;
+}
+
 export function Home() {
     const [newSkill, setNewSkill] = useState('');
-    const [mySkill, setMySkill] = useState([]);
+    const [mySkills, setMySkill] = useState<SkillData[]>([]);
     const [gretting, setGretting] = useState('');
 
     function handleNewAddSkill() {
-        setMySkill(oldState => [...oldState, newSkill]);
+        const data = {
+            id: String(new Date().getTime()),
+            name: newSkill,
+        };
+        setMySkill(oldState => [...oldState, data]);
     }
 
     useEffect(() => {
-        const currentHour = new Date().getTime();
+        const currentHour = new Date().getUTCHours();
         console.log(currentHour);
 
         if (currentHour < 12) {
@@ -48,9 +57,9 @@ export function Home() {
             <Text style={[styles.text, { marginVertical: 50 }]}>My Skill</Text>
 
             <FlatList
-                data={mySkill}
-                keyExtractor={item => item}
-                renderItem={({ item }) => <SkillCard skill={item} />}
+                data={mySkills}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => <SkillCard skill={item.name} />}
             />
         </View>
     );
