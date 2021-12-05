@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function ({skill}) {
+export default function ({ skill }) {
     return (
         <TouchableOpacity style={styles.buttonSkill}>
             <Text style={styles.textSkill}>{skill}</Text>

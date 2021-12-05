@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -7,7 +7,7 @@ import {
     Platform,
     FlatList,
 } from 'react-native';
-import {Button} from '../components/Button';
+import { Button } from '../components/Button';
 import SkillCard from '../components/SkillCard';
 
 export function Home() {
@@ -45,12 +45,12 @@ export function Home() {
 
             <Button onPress={handleNewAddSkill} />
 
-            <Text style={[styles.text, {marginVertical: 50}]}>My Skill</Text>
+            <Text style={[styles.text, { marginVertical: 50 }]}>My Skill</Text>
 
             <FlatList
                 data={mySkill}
                 keyExtractor={item => item}
-                renderItem={({item}) => <SkillCard skill={item} />}
+                renderItem={({ item }) => <SkillCard skill={item} />}
             />
         </View>
     );
