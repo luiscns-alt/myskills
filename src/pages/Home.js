@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 24,
         fontWeight: 'bold',
-        alignSelf: 'center',
+        alignSelf: 'flex-start',
     },
     textInput: {
         backgroundColor: '#1F1E25',
